@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      News
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button tappable (click)="goToInfo()">
+        <ion-icon name="information-circle"></ion-icon>
+      </button>
+      <button ion-button tappable (click)="goToSetting()">
+        <ion-icon name="settings"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngFor="let article of data?.articles">
+    <img [src]="article.urlToImage"/>
+    <ion-card-content>
+      <ion-card-title>
+        {{article.title}}
+        <a fill="outline" style="text-decoration:none" href="{{article.url}}" >Read more ..</a>
+        </ion-card-title>
+      <p>
+        {{article.publishedAt}}
+      </p>
+      <p>
+        {{article.source.name}}
+      </p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
